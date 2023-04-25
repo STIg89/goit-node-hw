@@ -15,7 +15,7 @@ router.post("/", validateBody(schemas.addSchema), controllers.addContact);
 
 router.put(
   "/:contactId",
-  validateBody(schemas.addSchema),
+  validateBody(schemas.updateSchema),
   controllers.updateContact
 );
 

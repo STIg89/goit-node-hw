@@ -15,6 +15,10 @@ const login = async (req, res) => {
     throw HttpError(401, "Email or password is wrong");
   }
 
+  if (!user.verify) {
+    throw HttpError(401, "Email is not verified");
+  }
+
   const passwordCompare = await brypt.compare(password, user.password);
 
   if (!passwordCompare) {
